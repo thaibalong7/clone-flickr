@@ -108,7 +108,7 @@ class TagSearch extends Component {
         </ul> */}
                 <Gallery className={"container-fluid"} images={IMAGES} margin={3}
                     onClickThumbnail={(index, event) => {
-                        this.props.history.push('/photo/' + this.state.items[index].id + '?');
+                        this.props.history.push('/photo/' + this.state.items[index].id);
                         console.log(this.state.items[index])
                     }}
                     enableLightbox={false} enableImageSelection={false} ></Gallery>
