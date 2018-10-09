@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import Magnifier from 'react-magnifier';
 import 'w3-css/w3.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 const month = ["January", "February", "March", "April", "May", "June",
