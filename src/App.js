@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Explore from './components/Explore'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import TagSearch from './components/TagSearch';
-import Photo from './components/Photo';
-import Menu from './components/Menu';
+import ExploreContainer from './components/containers/ExploreContainer'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TagSearchContainer from './components/containers/TagSearchContainer';
+import PhotoContainer from './components/containers/PhotoContainer';
+import Menu from './components/Presentationals/Menu';
 
 
 class App extends Component {
@@ -27,7 +27,6 @@ class App extends Component {
 
 
 	render() {
-		let { keyword } = this.state;
 		return (
 			<Router>
 				<div className="container-fluid">
@@ -37,10 +36,10 @@ class App extends Component {
 				</header> */}
 					<Menu />
 					<Switch>
-						<Route exact path="/" component={Explore} />
-						<Route path="/explore" component={Explore} />
-						<Route path="/photo/:id" component={Photo} />
-						<Route path="/tag/:tagName" component={TagSearch} />
+						<Route exact path="/" component={ExploreContainer} />
+						<Route path="/explore" component={ExploreContainer} />
+						<Route path="/photo/:id" component={PhotoContainer} />
+						<Route path="/tag/:tagName" component={TagSearchContainer} />
 					</Switch>
 				</div>
 			</Router>

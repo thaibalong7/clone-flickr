@@ -41,7 +41,7 @@ class Menu extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
-                            <Link to="explore" className="nav-item active nav-link">Explore</Link>
+                            <Link to="/explore" className="nav-item active nav-link">Explore</Link>
                         </ul>
                         <form className="form-inline my-2 mylg-0" onSubmit={this.onSubmit}>
                             <input type="search"
