@@ -10,7 +10,6 @@ class Photo extends Component {
             views: props.data.views,
             source: props.data.source
         };
-        //console.log(props.data.source)
     }
 
     render() {

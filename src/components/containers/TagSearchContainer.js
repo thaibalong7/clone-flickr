@@ -14,7 +14,6 @@ class TagSearchContainer extends Component {
         };
     }
     componentDidMount() {
-        console.log('componentDidMount', this.props.match.params.tagName);
         const api = `${config.APIhost}?method=flickr.photos.search&api_key=${config.APIkey}&tags=${this.props.match.params.tagName}&extras=owner_name%2C+views&per_page=20&page=1&format=json&nojsoncallback=1`
         console.log('Call API: ' + api)
         axios.get(api)
@@ -36,7 +35,6 @@ class TagSearchContainer extends Component {
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         if (this.props.match.params.tagName !== prevProps.match.params.tagName) {
-            console.log('componentDidUpdate', this.props.match.params.tagName);
             const api = `${config.APIhost}?method=flickr.photos.search&api_key=${config.APIkey}&tags=${this.props.match.params.tagName}&extras=owner_name%2C+views&per_page=20&page=1&format=json&nojsoncallback=1`
             console.log('Call API: ' + api)
             axios.get(api)
@@ -55,9 +53,8 @@ class TagSearchContainer extends Component {
                     this.props.ini_listphoto(items);
                 })
         }
-      }
+    }
     loadMoreItems = () => {
-        console.log('loadMoreItems',this.props.match.params.tagName);
         this.setState({
             loadingState: true,
             page: this.state.page + 1
@@ -85,7 +82,6 @@ class TagSearchContainer extends Component {
     }
 
     render() {
-        console.log('render', this.props.match.params.tagName);
         return (
             <Explore loadingState={this.state.loadingState} loadMoreItems={this.loadMoreItems}></Explore>);
     }

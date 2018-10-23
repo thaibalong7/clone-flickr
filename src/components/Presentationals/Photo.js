@@ -18,7 +18,6 @@ class Photo extends Component {
         return tagList;
     }
     render() {
-        console.log((this.props))
         return (
             <div className="container-fluid row">
 

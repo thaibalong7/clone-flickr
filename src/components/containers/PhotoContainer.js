@@ -4,7 +4,7 @@ import 'w3-css/w3.css';
 import Photo from '../Presentationals/Photo'
 import config from '../../config'
 import { connect } from 'react-redux'
-import { change_info_photo } from '../../actions'
+import { change_info_photo, set_default_info_photo } from '../../actions'
 const month = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
@@ -13,17 +13,9 @@ const month = ["January", "February", "March", "April", "May", "June",
 class PhotoContainer extends Component {
     constructor(props) {
         super(props);
+        this.props.set_default_info_photo();
         this.state = {
             photo_id: props.match.params.id,
-            imgInfo: {
-                source: 'https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif',
-                title: 'loading',
-                ownername: '...',
-                views: 'views',
-                description: 'description',
-                tags: [],
-                date: '...'
-            }
         };
     }
     componentDidMount = () => {
@@ -43,9 +35,6 @@ class PhotoContainer extends Component {
                     source: 'https://farm' + photos.farm + '.staticflickr.com/' + photos.server + '/' + photos.id + '_' + photos.secret + '.jpg'
                 }
                 this.props.change_info_photo(imgInfo)
-                this.setState({
-                    imgInfo: imgInfo
-                });
             })
             .catch(err => {
                 console.log(err)
@@ -61,6 +50,9 @@ const mapDispatchToProps = (dispatch) => (
         change_info_photo: (info) => {
             dispatch(change_info_photo(info));
         },
+        set_default_info_photo: () => {
+            dispatch(set_default_info_photo());
+        }
     }
 )
 

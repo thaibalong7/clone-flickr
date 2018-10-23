@@ -1,4 +1,8 @@
-import { INI_LISTPHOTO, LOADMORE_LISTPHOTO, CHANGE_INFO_PHOTO, CHANGE_TAG_SEARCH } from './types'
+import {
+    INI_LISTPHOTO, LOADMORE_LISTPHOTO,
+    CHANGE_INFO_PHOTO, SET_DEFAULT_INFO_PHOTO,
+    CHANGE_TAG_SEARCH
+} from './types'
 
 export const ini_listphoto = (listPhoto) => {
     return {
@@ -12,12 +16,19 @@ export const loadmore_listphoto = (listPhoto) => {
         listPhoto
     }
 }
+
 export const change_info_photo = (info) => {
     return {
         type: CHANGE_INFO_PHOTO,
         info
     }
 }
+export const set_default_info_photo = () => {
+    return {
+        type: SET_DEFAULT_INFO_PHOTO
+    }
+}
+
 export const change_tag_search = (tag) => {
     return {
         type: CHANGE_TAG_SEARCH,
